@@ -1,0 +1,23 @@
+
+<section class="p-4">
+    <h2 class="font-light">Objects</h2>
+
+    <div *ngIf="objects.length > 0" class="flex flex-col gap-y-2 py-2">
+        <a *ngFor="let obj of objects" class="bg-grey-100 p-2 rounded object-card" href="/objects/{{obj.id}}/edit">
+            <h3 class="font-light">
+                Object {{ obj.id }} 
+            </h3>
+            <p>
+                {{ obj.name }} 
+            </p>
+            <p>
+                {{ obj.description }} 
+            </p>
+        </a>
+    </div>
+
+    <div *ngIf="objects.length === 0">
+        <p>No objects found</p>
+    </div>
+</section>
+

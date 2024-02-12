@@ -1,0 +1,39 @@
+/*
+    FLEXBOX STYLES
+*/
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.gap-y-2 > * + * {
+    margin-top: 0.5rem;
+}
+
+.gap-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+.gap-x-2 > * + * {
+    margin-left: 0.5rem;
+}
+
+.gap-x-4 > * + * {
+    margin-left: 1rem;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}

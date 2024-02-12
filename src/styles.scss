@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import 'app/styles/_flexbox.scss';
+@import 'app/styles/_padding.scss';
+@import 'app/styles/_variables.scss';
+@import 'app/styles/_border.scss';
+@import 'app/styles/_font.scss';
+@import 'app/styles/_width.scss';
+@import 'app/styles/_rounding.scss';
+@import 'app/styles/_background.scss';
+@import 'app/styles/_icons.scss';
+@import 'app/styles/_text.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+// fix button defaults
+button, a, input, select, textarea {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: none;
+    display: inline-block;
+    line-height: normal;
+}
