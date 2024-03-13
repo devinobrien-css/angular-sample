@@ -1,22 +1,60 @@
-<section class="p-4">
-    <a href="/objects" class="bg-grey-100 rounded p-2">
-        <span class="icon-arrow-left"></span>
-        back</a>
-    <h2 class="font-light">Object {{id}}</h2>
+<section class="p-8">
+    <a href="/objects" class="bg-gray-100 rounded p-2">
+        <span class="icon-arrow-left "></span>
+        back
+    </a>
+    
+    <br/>
 
-    <div>
-        <div class="flex flex-col">
-            <label for="name" class="font-light text-lg">Name</label>
-            <input id="name" type="text" [formControl]="name"/>
-        </div>
+    
+    <form class="shadow-sm p-4 rounded my-3">
+        <fieldset class="rounded p-2 border-0 w-full">
+            <legend>
+                <h2 class="font-light">
+                    Object Details
+                </h2>
+            </legend>
+            <hr/>
+            <br/>
 
-        <div class="flex flex-col">
-            <label for="description" class="font-light text-lg">Description</label>
-            <textarea id="description" [formControl]="description"></textarea>
-        </div>
-    </div>
+            <h3 class="font-light">ID:  {{id}}</h3>
+            <br/>
+            <div class="flex flex-col">
+                <label for="name" class="font-light text-lg">Name</label>
+                <input id="name" type="text" [formControl]="name"/>
+            </div>
+    
+            <br/>
+    
+            <div class="flex flex-col">
+                <label for="description" class="font-light text-lg">Description</label>
+                <textarea id="description" [formControl]="description"></textarea>
+            </div>
+        </fieldset>
+    </form>
     <div class="flex justify-end p-2 gap-x-2">
-        <button class="bg-grey-100 p-2 rounded border-red border-2 bg-red-100 text-red">Cancel Changes</button>
-        <button class="bg-grey-100 p-2 rounded" (click)="onSubmit()">Update Object</button>
+        <button 
+            class="
+                p-2 rounded 
+                transition-all 
+                text-red hover:text-white 
+                bg-red-100 hover:bg-red-200 
+                active:outline-red-300 outline-2 
+            "  
+        >
+            Cancel Changes
+        </button>
+        <button 
+            class="
+                p-2 rounded 
+                transition-all 
+                active:outline-blue-300 outline-2
+                bg-gray-100 hover:text-gray-700 hover:bg-gray-200 
+            " 
+            (click)="onSubmit()"
+        >
+            Update Object
+        </button>
     </div>
+
 </section>

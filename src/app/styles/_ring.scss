@@ -1,0 +1,27 @@
+
+.outline-2 {
+    outline: 2px solid;
+}
+.active\:outline-2:active {
+    outline: 2px solid;
+}
+
+.outline-blue-300 {
+    outline-color: #4a90e2;
+}
+.active\:outline-blue-300 {
+    outline-color: transparent;
+}
+.active\:outline-blue-300:active {
+    outline-color: #4a90e2;
+}
+
+.outline-red-300 {
+    outline-color: #ff0000;
+}
+.active\:outline-red-300 {
+    outline-color: transparent;
+}
+.active\:outline-red-300:active {
+    outline-color: #ff0000;
+}

@@ -1,14 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import 'app/styles/_flexbox.scss';
-@import 'app/styles/_padding.scss';
-@import 'app/styles/_variables.scss';
-@import 'app/styles/_border.scss';
-@import 'app/styles/_font.scss';
-@import 'app/styles/_width.scss';
-@import 'app/styles/_rounding.scss';
-@import 'app/styles/_background.scss';
-@import 'app/styles/_icons.scss';
-@import 'app/styles/_text.scss';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+// @import 'app/styles/_flexbox.scss';
+// @import 'app/styles/_padding.scss';
+// @import 'app/styles/_variables.scss';
+// @import 'app/styles/_border.scss';
+// @import 'app/styles/_font.scss';
+// @import 'app/styles/_width.scss';
+// @import 'app/styles/_rounding.scss';
+// @import 'app/styles/_background.scss';
+// @import 'app/styles/_icons.scss';
+// @import 'app/styles/_text.scss';
+// @import 'app/styles/_margins.scss';
+// @import 'app/styles/_height.scss';
+// @import 'app/styles/_transition.scss';
+// @import 'app/styles/_size.scss';
+// @import 'app/styles/_ring.scss';
 
 * {
     margin: 0;
@@ -18,17 +29,28 @@
 }
 
 // fix button defaults
-button, a, input, select, textarea {
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    text-align: inherit;
-    text-decoration: none;
-    display: inline-block;
-    line-height: normal;
-}
+// button, a, input, select, textarea, legend, fieldset {
+//     border: none;
+//     background: none;
+//     cursor: pointer;
+//     padding: 0;
+//     margin: 0;
+//     font-family: inherit;
+//     font-size: inherit;
+//     color: inherit;
+//     text-align: inherit;
+//     text-decoration: none;
+//     display: inline-block;
+//     line-height: normal;
+// }
+
+// h1 {
+//     font-size: 5rem;
+//     transition: all 0.3s ease;
+//     @media screen and (max-width: $screensize-md) {
+//         font-size: 3.5rem;
+//     }
+//     @media screen and (max-width: $screensize-sm) {
+//         font-size: 1.5rem;
+//     }
+// }
