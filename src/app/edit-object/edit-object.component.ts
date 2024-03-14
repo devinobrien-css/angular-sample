@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-edit-object',
   standalone: true,
   imports: [
+    CommonModule,
     ToastModule,
     ReactiveFormsModule,
   ],
@@ -19,8 +21,8 @@ export class EditObjectComponent {
   id: string | null = null;
   object: any = {};
 
-  name = new FormControl('');
-  description = new FormControl('');
+  name = new FormControl('', Validators.required);
+  description = new FormControl('', Validators.required);
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private messageService: MessageService) { }
 
@@ -38,13 +40,16 @@ export class EditObjectComponent {
   }
 
   onSubmit() {
+    if (this.name.invalid || this.description.invalid) {
+      this.messageService.add({severity:'warn', summary: 'Error', detail: 'Please fill in all required fields'});
+      return;
+    }
+
     try {
       this.http.patch(`http://localhost:5000/objects/${this.id}`, {
         name: this.name.value,
         description: this.description.value
       }).subscribe(data => {
-        console.log(data);
-        console.log('Object updated');
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Successfully updated record!' });
       });
     } catch (error) {
@@ -52,13 +57,19 @@ export class EditObjectComponent {
     }
   }
 
+  onConfirmDelete() {
+    this.messageService.add({key: 'confirm-delete', sticky: true, severity:'warn', summary:'Are you sure?', detail:'Confirm to proceed'});
+  }
+
+  onCancelDelete() {
+    this.messageService.clear('confirm-delete')
+  }
+
   onDelete() {
-    console.log('Deleting object');
     try {
       this.http.delete(`http://localhost:5000/objects/${this.id}`).subscribe(() => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Successfully deleted record` });
-        window.location.href = '/objects';
-      });
+        window.location.href = '/objects?deleted=true';
+      })
     } catch (error) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Failed to delete record'});
     }

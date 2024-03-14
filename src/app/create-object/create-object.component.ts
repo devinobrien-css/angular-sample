@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
@@ -16,19 +16,23 @@ import { ToastModule } from 'primeng/toast';
   styleUrl: './create-object.component.scss'
 })
 export class CreateObjectComponent {
-  name = new FormControl('');
-  description = new FormControl('');
+  name = new FormControl('', Validators.required);
+  description = new FormControl('', Validators.required);
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private messageService: MessageService) {}
 
   onSubmit() {
+    if (this.name.invalid || this.description.invalid) {
+      this.messageService.add({severity:'warn', summary: 'Error', detail: 'Please fill in all required fields'});
+      return;
+    }
+
     try {
       this.http.post(`http://localhost:5000/objects`, {
         name: this.name.value,
         description: this.description.value
-      }).subscribe(data => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Successfully created record!' });
-        window.location.href = '/objects';
+      }).subscribe(() => {
+        window.location.href = '/objects?created=true';
       });
     } catch (error) {
       console.error(error);

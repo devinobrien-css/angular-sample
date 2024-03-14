@@ -5,6 +5,10 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
+.p-toast-message {
+    margin-bottom: 1em;
+}
+
 .p-toast-message > * {
     padding: 1em;
 }
@@ -22,4 +26,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
+}
+ 
+
+.p-toast-icon-close {
+    display: none;
 }
